@@ -1,30 +1,33 @@
 import { Component, createSignal } from "solid-js";
+import Eight from "./eight";
 import Six from "./six";
 import Four from "./four";
 
 const Dice: Component = () => {
   const [roll, setRoll] = createSignal(6);
+  const dimensions = { w: "50%", h: "25%" };
   return (
     <div class="container">
       <h1>Dice Rolls</h1>
       <article>
-        <header>Six (6) Sided</header>
+        <header>Sixf (6) Sided</header>
         <div>
           <button onClick={() => setRoll(Math.floor(Math.random() * 6 + 1))}>
             roll
           </button>
-          <Six rollnum={roll} />
-          <Four rollnum={roll} />
-          {/* <Six rollnum={roll} /> */}
+          {/* <div>
+            <Eight rollnum={roll} dimensions={dimensions} />
+            <Six rollnum={roll} dimensions={dimensions} />
+            <Four rollnum={roll} dimensions={dimensions} />
+          </div> */}
         </div>
         <footer>Footer</footer>
       </article>
-      {/*
-      <button onClick={() => setRoll(Math.floor(Math.random() * 6 + 1))}>
-        roll
-      </button>
-      <p> {roll} </p>
-      */}
+      <div>
+        <Eight rollnum={roll} dimensions={dimensions} />
+        <Six rollnum={roll} dimensions={dimensions} />
+        <Four rollnum={roll} dimensions={dimensions} />
+      </div>
     </div>
   );
 };
