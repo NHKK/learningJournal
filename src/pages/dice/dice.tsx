@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
-import sixSided from "../../assets/six.svg";
 import Six from "./six";
+import Four from "./four";
 
 const Dice: Component = () => {
   const [roll, setRoll] = createSignal(6);
@@ -10,7 +10,12 @@ const Dice: Component = () => {
       <article>
         <header>Six (6) Sided</header>
         <div>
-          <Six />
+          <button onClick={() => setRoll(Math.floor(Math.random() * 6 + 1))}>
+            roll
+          </button>
+          <Six rollnum={roll} />
+          <Four rollnum={roll} />
+          {/* <Six rollnum={roll} /> */}
         </div>
         <footer>Footer</footer>
       </article>
